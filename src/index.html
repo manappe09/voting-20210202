@@ -3,12 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>伝説の生き物に名前をつけよう！</title>
 </head>
 <body>
-  <h1>Hello, Webpack3!</h1>
-  <div id="app"></div>
-  <img src="./images/egypt_ammut_ammit.png" alt="">
-  <span>hogehoge</span>
+  <header class="header">
+    <img src="./images/egypt_ammut_ammit.png" alt="伝説の生き物">
+    <h1></h1>
+    <div class="sub">
+      <img src="./images/youkai_kotobuki.png" alt="もう一体の伝説の生き物">
+      <span></span>
+    </div>
+  </header>
+  <main>
+    <nav>
+      <p>ナビ1</p>
+      <p>ナビ2</p>
+    </nav>
+    <section>
+      <p class="leading"></p>
+      <form action="post" class="form">
+        <h2>投票フォーム</h2>
+        <label for="name">名前</label>
+        <input type="text" id="name">
+        <label for="voter">投票者属性</label>
+        <select id="voter">
+          <option value="friend">知り合い</option>
+          <option value="follower">Twitterフォロワー</option>
+          <option value="stranger">通りすがり</option>
+        </select>
+        <label for="nickname">投票者ニックネーム</label>
+        <input type="text" id="nickname">
+        <button type="submit">送信</button>
+      </form>
+      <div class="posts"></div>
+    </section>
+    <footer>
+      <p>@manappe 2021</p>
+    </footer>
+  </main>
 </body>
 </html>
