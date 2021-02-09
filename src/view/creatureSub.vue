@@ -2,14 +2,7 @@
   <div>
     <section class="bg-white rounded-3xl p-8 pb-12 shadow-xl">
       <p class="leading text-sm mb-8">
-        伝説の生き物にぴったりな名前を募集します！<br><br>
-        伝説の生き物とは…<br>
-        ＊頭はウサギ<br>
-        ＊首は竜<br>
-        ＊両腕は鬼<br>
-        などなど、なんだか強そうな生き物だ！<br><br>
-        応募方法は、下記に入力して送るだけ！<br>
-        1人何回でも応募可能なので、奮って応募してね！
+        もう一体の伝説の生き物にも名前をつけよう！
       </p>
       <form action="post" class="form">
         <label class="text-xs text-gray-400" for="name">名前案</label><br>
