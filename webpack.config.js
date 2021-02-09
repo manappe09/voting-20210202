@@ -40,7 +40,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          // "vue-style-loader",
+          "vue-style-loader",
           "style-loader",
           "css-loader",
           // MiniCssExtractPlugin.loader, // cssファイルをjsから分離する。この位置じゃないとエラー吐いた。
