@@ -27,14 +27,24 @@ module.exports = {
           publicPath: "images", // 画像を他のサーバーに置いている場合はそのURLをここに記載。
         },
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: [
+      //     "vue-style-loader",
+      //     MiniCssExtractPlugin.loader, // cssファイルをjsから分離する。この位置じゃないとエラー吐いた。
+      //     "css-loader",
+      //     "postcss-loader",
+      //     "sass-loader",
+      //   ],
+      // },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
-          "vue-style-loader",
-          MiniCssExtractPlugin.loader, // cssファイルをjsから分離する。この位置じゃないとエラー吐いた。
+          // "vue-style-loader",
+          "style-loader",
           "css-loader",
+          // MiniCssExtractPlugin.loader, // cssファイルをjsから分離する。この位置じゃないとエラー吐いた。
           "postcss-loader",
-          "sass-loader",
         ],
       },
       {

@@ -4,36 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>伝説の生き物に名前をつけよう！</title>
+  <!-- <link rel="stylesheet" href="./css/tailwind.css"> -->
 </head>
-<body>
-  <header class="header">
-    <img src="./images/egypt_ammut_ammit.png" alt="伝説の生き物">
-    <h1></h1>
-    <div class="sub">
-      <img src="./images/youkai_kotobuki.png" alt="もう一体の伝説の生き物">
-      <span></span>
+<body class="bg-yellow-300">
+  <header class="header text-white">
+    <div class="main flex mt-20 items-center">
+      <img src="./images/youkai_kotobuki.png" alt="伝説の生き物" class="max-w-full w-1/3">
+      <h1 class="font-black text-3xl">伝説の生き物に<br>名前をつけよう！</h1>
+    </div>
+    <div class="sub text-right bg-white rounded-full w-1/5 h-1/5 relative right-0 mt-3 mr-6 ml-auto mb-12">
+      <img src="./images/egypt_ammut_ammit.png" alt="もう一体の伝説の生き物" class="max-w-full">
+      <span class="absolute inset-x-0 text-center text-xs whitespace-nowrap m-auto -left-3">もう一匹の伝説の<br>名付け親になろう</span>
     </div>
   </header>
   <main>
-    <nav>
+    <nav class="flex justify-around">
       <p>ナビ1</p>
       <p>ナビ2</p>
     </nav>
-    <section>
-      <p class="leading"></p>
+    <section class="bg-white rounded-t-3xl p-8">
+      <p class="leading text-sm mb-8">
+        伝説の生き物にぴったりな名前を募集します！<br><br>
+        伝説の生き物とは…<br>
+        ＊頭はウサギ<br>
+        ＊首は竜<br>
+        ＊両腕は鬼<br>
+        などなど、なんだか強そうな生き物だ！<br><br>
+        応募方法は、下記に入力して送るだけ！<br>
+        1人何回でも応募可能なので、奮って応募してね！
+      </p>
       <form action="post" class="form">
-        <h2>投票フォーム</h2>
-        <label for="name">名前</label>
-        <input type="text" id="name">
-        <label for="voter">投票者属性</label>
-        <select id="voter">
-          <option value="friend">知り合い</option>
-          <option value="follower">Twitterフォロワー</option>
-          <option value="stranger">通りすがり</option>
-        </select>
-        <label for="nickname">投票者ニックネーム</label>
-        <input type="text" id="nickname">
-        <button type="submit">送信</button>
+        <label class="text-xs text-gray-400" for="name">名前</label><br>
+        <input type="text" id="name" class="border border-solid border-gray-300 rounded-full w-full h-9"><br>
+        <label class="text-xs text-gray-400" for="voter">投票者属性</label><br>
+        <div class="flex items-end">
+          <select id="voter" class="border border-solid border-gray-300 rounded-full flex-auto h-9">
+            <option value="friend">知り合い</option>
+            <option value="follower">SNSフォロワー</option>
+            <option value="stranger">通りすがり</option>
+          </select>
+          <div>
+            <label class="text-xs text-gray-400" for="nickname">投票者ニックネーム</label><br>
+            <input type="text" id="nickname" class="border border-solid border-gray-300 rounded-full h-9"><br>
+          </div>
+        </div>
+        <button type="submit" class="bg-green-400 text-white rounded-full w-full p-1 h-9">送信</button>
       </form>
       <div class="posts"></div>
     </section>
