@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import CreatureMain from './view/creatureMain';
 import CreatureSub from './view/creatureSub';
+import Thanks from './view/thanks';
 
 Vue.use(Router);
 
@@ -10,11 +11,20 @@ export default new Router({
   routes:[
     {
       path: '/',
-      component: CreatureMain
+      component: CreatureMain,
     },
     {
-      path: '/sub',
-      component: CreatureSub
+      path: '/sub/:foo',
+      component: CreatureSub,
+      props: true
     },
+    {
+      path: '/thanks',
+      component: Thanks
+    },
+    {
+      path: '*',
+      redirect: '/'
+    }
   ]
 })
