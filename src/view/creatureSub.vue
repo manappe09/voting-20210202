@@ -9,7 +9,7 @@
         <input
           type="text"
           id="name"
-          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400"
+          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none"
           placeholder="かえるライオン"
           v-model="name"
         /><br />
@@ -19,7 +19,7 @@
             ><br />
             <select
               id="voter"
-              class="border border-solid border-gray-300 rounded-full flex-auto text-sm h-9 pl-2 w-11/12 focus:outline-none focus:border-green-400"
+              class="border border-solid border-gray-300 rounded-full flex-auto text-sm h-9 pl-2 w-11/12 focus:outline-none focus:border-green-400 appearance-none"
               v-model="voter"
             >
               <option disabled selected>属性を選択</option>
@@ -35,7 +35,7 @@
             <input
               type="text"
               id="nickname"
-              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400"
+              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none"
               placeholder="マナっぺ"
               v-model="nickname"
             /><br />
@@ -47,7 +47,7 @@
         <textarea
           type="text"
           id="reason"
-          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400"
+          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400 appearance-none"
           placeholder="見た目通り"
           rows="1"
           v-model="reason"

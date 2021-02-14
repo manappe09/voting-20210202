@@ -109,7 +109,6 @@ export default {
         'posts'
       )
       .then(response => {
-        // console.log(response.data.documents);
         this.posts = response.data.documents;
       })
   },
