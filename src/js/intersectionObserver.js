@@ -13,7 +13,7 @@ export function createObserver() {
 
   let options = {
     root: null,
-    rootMargin: "-50% 0px",
+    rootMargin: "-40% 0px",
     threshold: 0,
   };
   
@@ -26,14 +26,13 @@ export function createObserver() {
       observer.observe(box);
     });
   }, 100);
-  console.log('rootFlag',store.state.routeFlag);
 }
 
 function doWhenIntersect(entries) {
   // 交差検知をしたものの中で、isIntersectingがtrueのものをスタイル変更の関数に渡す
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log('observed');
+      console.log(entry);
       fadeInItem(entry.target);
     }
   });

@@ -68,7 +68,7 @@
             >投稿一覧</span
           >
         </h2>
-        <div id="postsArea" class="flex justify-around flex-wrap overflow-auto">
+        <div id="postsArea" class="flex justify-around flex-wrap overflow-auto content-start">
           <Post
             v-for="(post, index) in posts"
             :key="post.name"

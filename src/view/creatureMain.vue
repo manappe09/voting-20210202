@@ -76,8 +76,8 @@
             >投稿一覧</span
           >
         </h2>
-        <div id="" class="flex justify-around flex-wrap">
-          <Post v-for="post in posts" :key="post.name" :post-data="post"></Post>
+        <div id="" class="flex justify-around flex-wrap min-h-screen content-start">
+          <Post v-for="(post, index) in posts" :key="post.name" :post-data="post" :post-index="index"></Post>
           <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
             もっと読み込む
           </p> -->

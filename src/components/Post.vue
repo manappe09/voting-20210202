@@ -1,6 +1,6 @@
 <template>
   <div
-    class="posts-item shadow-lg w-5/12 h-40 mb-4 rounded-3xl overflow-hidden transition duration-500"
+    class="posts-item shadow-lg w-5/12 h-40 mb-4 rounded-3xl overflow-hidden transition duration-500 md:w-1/4 md:mr-2"
     :class="initialOpacity"
   >
     <p
@@ -32,7 +32,12 @@ export default {
   },
   computed: {
     initialOpacity() {
-      return this.postIndex < 4 ? 'opacity-100' : 'opacity-0';
+      let viewport = window.innerWidth;
+      if(viewport < 768) {
+        return this.postIndex < 4 ? 'opacity-100' : 'opacity-0';
+      } else {
+        return this.postIndex < 6 ? 'opacity-100' : 'opacity-0';
+      }
     }
   },
   created() {
