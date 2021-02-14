@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// import { createObserver } from './js/intersectionObserver';
 
 export default {
   data() {
@@ -24,6 +25,20 @@ export default {
         voter: '',
         reason: '',
       }
+    }
+  },
+  mounted() {
+    // createObserver();
+  },
+  watch: {
+    '$route': function() {
+      this.$store.dispatch('routeToggle', !this.$store.state.routeFlag);
+      // createObserver();
+    }
+  },
+  methods: {
+    demoFunction() {
+      console.log('view changed!');
     }
   }
 }

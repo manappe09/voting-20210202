@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white rounded-3xl p-8 pb-12 shadow-xl">
     <h2 class="text-center mb-4">送信完了！</h2>
-    <p>
+    <p class="mb-4">
       {{ this.$store.state.data.nickname }}さん、投稿してくれてありがとうございました！何度でも応募できるので、また思いついたら投稿してくださいね。
     </p>
     <ul class="text-sm text-gray-500">

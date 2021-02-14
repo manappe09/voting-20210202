@@ -4,7 +4,9 @@ import axios from 'axios';
 import router from './router.js';
 import store from './store';
 import "./css/tailwind.css";
-import './js/intersectionObserver';
+// setTimeout(() => {
+//   import('./js/intersectionObserver');
+// }, 100);
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";

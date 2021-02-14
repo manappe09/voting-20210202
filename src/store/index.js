@@ -19,6 +19,11 @@ export default new Vuex.Store({
       voter: "",
       reason: "",
     },
+    showPostData: {
+      postIndex: "",
+      isShow: false,
+    },
+    routeFlag: true
   },
   getters: {},
   mutations: {
@@ -28,24 +33,32 @@ export default new Vuex.Store({
       state.data.voter = data.voter;
       state.data.reason = data.reason;
     },
+    updateShowPostData(state, data) {
+      state.showPostData.isShow = true;
+      state.showPostData.postIndex = data;
+    },
+    routeToggle(state, status) {
+      state.routeFlag = status;
+    },
   },
-  actions: { // データを扱う処理を諸々まとめる
+  actions: {
+    // データを扱う処理を諸々まとめる
     updateMainData({ commit }, mainData) {
       commit("updateData", mainData); // mutationsにデータを移行する処理(vuex側で保存する用)
       axios // DBにデータ送る処理
         .post("posts", {
           fields: {
             name: {
-              stringValue: mainDana.name,
+              stringValue: mainData.name,
             },
             nickname: {
-              stringValue: mainDana.nickname,
+              stringValue: mainData.nickname,
             },
             voter: {
-              stringValue: mainDana.voter,
+              stringValue: mainData.voter,
             },
             reason: {
-              stringValue: mainDana.reason,
+              stringValue: mainData.reason,
             },
           },
         })
@@ -58,7 +71,7 @@ export default new Vuex.Store({
       router.push("/thanks");
     },
     updateSubData({ commit }, subData) {
-      commit('updateData', subData);
+      commit("updateData", subData);
       axios
         .post("postsSub", {
           fields: {
@@ -83,6 +96,12 @@ export default new Vuex.Store({
           console.log(error);
         });
       router.push("/thanks");
+    },
+    updateShowPostData({ commit }, data) {
+      commit("updateShowPostData", data);
+    },
+    routeToggle({ commit }, status) {
+      commit("routeToggle", status);
     },
   },
 });

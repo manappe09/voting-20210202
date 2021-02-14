@@ -76,12 +76,12 @@
             >投稿一覧</span
           >
         </h2>
-        <div class="flex justify-around flex-wrap">
-          <Post v-for="post in posts" :key="post.createTime" :post-data="post"></Post>
+        <div id="" class="flex justify-around flex-wrap">
+          <Post v-for="post in posts" :key="post.name" :post-data="post"></Post>
+          <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
+            もっと読み込む
+          </p> -->
         </div>
-        <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
-          もっと読み込む
-        </p>
       </div>
     </section>
   </div>
@@ -90,6 +90,7 @@
 <script>
 import axios from 'axios';
 import Post from '../components/Post';
+import { createObserver } from '../js/intersectionObserver';
 
 export default {
   props: ['number'],
@@ -108,7 +109,7 @@ export default {
         'posts'
       )
       .then(response => {
-        console.log(response.data.documents);
+        // console.log(response.data.documents);
         this.posts = response.data.documents;
       })
   },
@@ -121,25 +122,16 @@ export default {
         reason: this.reason,
       })
     },
-    input(e) {
-      axios
-        .post(
-          'voting',
-          {
-            fields: {
-              value: {
-                stringValue: e.target.value
-              }
-            }
-          }
-        )
-        .then(response => {
-          console.log(response.data);
-        })
-    }
   },
   components: {
     Post
-  }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("beforeRouteEnter");
+    setTimeout(() => {
+      createObserver();
+    }, 100);
+    next();
+  },
 };
 </script>

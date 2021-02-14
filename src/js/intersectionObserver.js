@@ -1,38 +1,47 @@
-'use strict';
+"use strict";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import store from '../store';
 
-console.log('load suceess!');
+Vue.use(Vuex)
 
-const boxes = document.querySelectorAll('.box');
+let boxes = [];
+let observer;
 
-let options = {
-  root: null,
-  rootMargin: "-50% 0px",
-  threshold: 0,
-};
+export function createObserver() {
+  boxes = document.querySelectorAll(".posts-item");
 
-// html読み込み前に要素を探しにいってしまうことでfailed to constructエラーになった。もう少しスマートにしたい
-setTimeout(() => {
-  console.log(options.root);
-  options.root = '#lazyload';
-  console.log(options.root);
-}, 100)
+  let options = {
+    root: null,
+    rootMargin: "-50% 0px",
+    threshold: 0,
+  };
+  
+  observer = new IntersectionObserver(doWhenIntersect, options);
 
-const observer = new IntersectionObserver(doWhenIntersect, options);
-
-// それぞれのboxを監視する
-boxes.forEach(box => {
-  observer.observe(box);
-})
+  // html読み込み前に要素を探しにいってしまうことでfailed to constructエラーになった。もう少しスマートにしたい。js importを非同期にしてもダメっぽい。。
+  setTimeout(() => {
+    // それぞれのboxを監視する
+    boxes.forEach((box) => {
+      observer.observe(box);
+    });
+  }, 100);
+  console.log('rootFlag',store.state.routeFlag);
+}
 
 function doWhenIntersect(entries) {
   // 交差検知をしたものの中で、isIntersectingがtrueのものをスタイル変更の関数に渡す
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      changeBackgroundColor(entry.target)
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log('observed');
+      fadeInItem(entry.target);
     }
-  })
+  });
 }
 
-function changeBackgroundColor(item) {
-  item.style.backgroundColor = 'red';
+function fadeInItem(item) {
+  item.classList.add("opacity-100");
 }
+
+// beforeRouteLeaveで監視を止める -> routeが変わった後に再度監視を始める
+// 切り替え時、切り替える時点でのDOM(切り替え前)を取得している -> 切り替えた後再取得する必要。

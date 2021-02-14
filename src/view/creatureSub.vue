@@ -68,12 +68,17 @@
             >投稿一覧</span
           >
         </h2>
-        <div class="flex justify-around flex-wrap">
-          <Post v-for="post in posts" :key="post.createTime" :post-data="post"></Post>
+        <div id="postsArea" class="flex justify-around flex-wrap overflow-auto">
+          <Post
+            v-for="(post, index) in posts"
+            :key="post.name"
+            :post-data="post"
+            :post-index="index"
+          ></Post>
+          <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
+            もっと読み込む
+          </p> -->
         </div>
-        <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
-          もっと読み込む
-        </p>
         <!-- <p>{{ foo }}</p> -->
       </div>
     </section>
@@ -81,42 +86,46 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Post from '../components/Post';
+import axios from "axios";
+import Post from "../components/Post";
+import { createObserver } from '../js/intersectionObserver';
 
 export default {
-  props: ['foo'],
+  props: ["foo"],
   data() {
     return {
-      name: '',
-      nickname: '',
-      voter: '',
-      reason: '',
-      posts: []
-    }
+      name: "",
+      nickname: "",
+      voter: "",
+      reason: "",
+      posts: [],
+    };
   },
   created() {
-    axios
-      .get(
-        'postsSub'
-      )
-      .then(response => {
-          console.log(response.data.documents);
-          this.posts = response.data.documents;
-      })
+    axios.get("postsSub").then((response) => {
+      // console.log(response.data.documents);
+      this.posts = response.data.documents;
+    });
   },
   methods: {
     submit() {
-      this.$store.dispatch('updateSubData', {
+      this.$store.dispatch("updateSubData", {
         name: this.name,
         nickname: this.nickname,
         voter: this.voter,
         reason: this.reason,
-      })
+      });
     },
   },
   components: {
-    Post
-  }
+    Post,
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("beforeRouteEnter");
+    setTimeout(() => {
+      createObserver();
+    }, 100);
+    next();
+  },
 };
 </script>
