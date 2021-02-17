@@ -40,7 +40,11 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('sub post mounted!');
+  },
   created() {
+    console.log('sub post created!');
     axios
       .get(
         'posts'
@@ -48,6 +52,8 @@ export default {
       .then(response => {
         this.posts = response.data.documents;
       })
+  },
+  methods: {
   }
 };
 </script>
