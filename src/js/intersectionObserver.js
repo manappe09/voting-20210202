@@ -9,6 +9,7 @@ let boxes = [];
 let observer;
 
 export function createObserver() {
+  console.log('created observer');
   boxes = document.querySelectorAll(".posts-item");
 
   let options = {
@@ -16,7 +17,7 @@ export function createObserver() {
     rootMargin: "-40% 0px",
     threshold: 0,
   };
-  
+
   observer = new IntersectionObserver(doWhenIntersect, options);
 
   // html読み込み前に要素を探しにいってしまうことでfailed to constructエラーになった。もう少しスマートにしたい。js importを非同期にしてもダメっぽい。。

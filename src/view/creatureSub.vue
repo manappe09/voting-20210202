@@ -79,7 +79,6 @@
             もっと読み込む
           </p> -->
         </div>
-        <!-- <p>{{ foo }}</p> -->
       </div>
     </section>
   </div>
@@ -102,10 +101,19 @@ export default {
     };
   },
   created() {
+    console.log('sub view created!');
     axios.get("postsSub").then((response) => {
-      // console.log(response.data.documents);
       this.posts = response.data.documents;
     });
+  },
+  mounted() {
+    console.log('mounted!');
+    // this.$nextTick(() => {
+    //   createObserver();
+    // })
+    setTimeout(() => {
+      createObserver();
+    }, 500);
   },
   methods: {
     submit() {
@@ -120,12 +128,12 @@ export default {
   components: {
     Post,
   },
-  beforeRouteEnter(to, from, next) {
-    console.log("beforeRouteEnter");
-    setTimeout(() => {
-      createObserver();
-    }, 100);
-    next();
-  },
+  // beforeRouteEnter(to, from, next) {
+  //   console.log("beforeRouteEnter");
+  //   setTimeout(() => {
+  //     createObserver();
+  //   }, 100);
+  //   next();
+  // },
 };
 </script>

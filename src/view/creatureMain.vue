@@ -129,7 +129,7 @@ export default {
     console.log("beforeRouteEnter");
     setTimeout(() => {
       createObserver();
-    }, 100);
+    }, 500);
     next();
   },
 };
