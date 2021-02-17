@@ -76,8 +76,17 @@
             >投稿一覧</span
           >
         </h2>
-        <div id="" class="flex justify-around flex-wrap min-h-screen content-start">
-          <Post v-for="(post, index) in posts" :key="post.name" :post-data="post" :post-index="index"></Post>
+        <div
+          id=""
+          class="flex justify-around flex-wrap min-h-screen content-start"
+        >
+          <Post
+            v-for="(post, index) in posts"
+            :key="post.name"
+            :post-data="post"
+            :post-index="index"
+            @is-post-mounted="postMounted"
+          ></Post>
           <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
             もっと読み込む
           </p> -->
@@ -88,49 +97,41 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Post from '../components/Post';
-import { createObserver } from '../js/intersectionObserver';
+import axios from "axios";
+import Post from "../components/Post";
+import { createObserver } from "../js/intersectionObserver";
 
 export default {
-  props: ['number'],
+  props: ["number"],
   data() {
     return {
       name: "",
       nickname: "",
       voter: "",
       reason: "",
-      posts: []
+      posts: [],
     };
   },
   created() {
-    axios
-      .get(
-        'posts'
-      )
-      .then(response => {
-        this.posts = response.data.documents;
-      })
+    axios.get("posts").then((response) => {
+      this.posts = response.data.documents;
+    });
   },
   methods: {
     submit() {
-      this.$store.dispatch('updateMainData', {
+      this.$store.dispatch("updateMainData", {
         name: this.name,
         nickname: this.nickname,
         voter: this.voter,
         reason: this.reason,
-      })
+      });
     },
+    postMounted() {
+      createObserver();
+    }
   },
   components: {
-    Post
-  },
-  beforeRouteEnter(to, from, next) {
-    console.log("beforeRouteEnter");
-    setTimeout(() => {
-      createObserver();
-    }, 500);
-    next();
+    Post,
   },
 };
 </script>

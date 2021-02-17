@@ -41,10 +41,9 @@ export default {
     }
   },
   mounted() {
-    console.log('sub post mounted!');
+    this.$emit('is-post-mounted');
   },
   created() {
-    console.log('sub post created!');
     axios
       .get(
         'posts'

@@ -74,6 +74,7 @@
             :key="post.name"
             :post-data="post"
             :post-index="index"
+            @is-post-mounted="postMounted"
           ></Post>
           <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
             もっと読み込む
@@ -107,13 +108,6 @@ export default {
     });
   },
   mounted() {
-    console.log('mounted!');
-    // this.$nextTick(() => {
-    //   createObserver();
-    // })
-    setTimeout(() => {
-      createObserver();
-    }, 500);
   },
   methods: {
     submit() {
@@ -124,16 +118,12 @@ export default {
         reason: this.reason,
       });
     },
+    postMounted() {
+      createObserver();
+    }
   },
   components: {
     Post,
   },
-  // beforeRouteEnter(to, from, next) {
-  //   console.log("beforeRouteEnter");
-  //   setTimeout(() => {
-  //     createObserver();
-  //   }, 100);
-  //   next();
-  // },
 };
 </script>
