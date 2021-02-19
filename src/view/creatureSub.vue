@@ -75,6 +75,7 @@
             :post-data="post"
             :post-index="index"
             @is-post-mounted="postMounted"
+            @get-post-index="postIndex = $event"
           ></Post>
           <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
             もっと読み込む
@@ -99,6 +100,7 @@ export default {
       voter: "",
       reason: "",
       posts: [],
+      postIndex: ''
     };
   },
   created() {
@@ -120,6 +122,9 @@ export default {
     },
     postMounted() {
       createObserver();
+    },
+    showPostIndex() {
+      console.log(this.postIndex);
     }
   },
   components: {
