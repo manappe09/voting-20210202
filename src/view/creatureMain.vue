@@ -16,12 +16,12 @@
         <input
           type="text"
           id="name"
-          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none"
+          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-3/5"
           placeholder="ドラゴンくん"
           v-model="name"
         /><br />
-        <div class="flex items-end max-w-full w-full justify-between mb-2">
-          <div>
+        <div class="flex items-end max-w-full w-full justify-between mb-2 md:justify-start">
+          <div class="md:w-1/4">
             <label class="text-xs text-gray-400" for="voter">投票者属性</label
             ><br />
             <select
@@ -35,14 +35,14 @@
               <option value="stranger">通りすがり</option>
             </select>
           </div>
-          <div>
+          <div class="md:w-2/5">
             <label class="text-xs text-gray-400" for="nickname"
               >投票者ニックネーム</label
             ><br />
             <input
               type="text"
               id="nickname"
-              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none"
+              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-full"
               placeholder="マナっぺ"
               v-model="nickname"
             /><br />
@@ -54,7 +54,7 @@
         <textarea
           type="text"
           id="reason"
-          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400 appearance-none"
+          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400 appearance-none md:w-3/5"
           placeholder="かっこいいから"
           rows="1"
           v-model="reason"
@@ -78,7 +78,7 @@
         </h2>
         <div
           id=""
-          class="flex justify-around flex-wrap min-h-screen content-start"
+          class="flex justify-around flex-wrap content-start"
         >
           <Post
             v-for="(post, index) in posts"
