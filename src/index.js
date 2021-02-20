@@ -1,9 +1,10 @@
-import Vue from 'vue';
-import App from './App.vue';
-import axios from 'axios';
-import router from './router.js';
-import store from './store';
+import Vue from "vue";
+import App from "./App.vue";
+import axios from "axios";
+import router from "./router.js";
+import store from "./store";
 import "./css/tailwind.css";
+import "./js/main";
 import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/solid";
 import "@fortawesome/fontawesome-free/js/regular";
@@ -16,5 +17,5 @@ axios.defaults.baseURL =
 new Vue({
   store,
   router,
-  render: h => h(App)
-}).$mount('#app');
+  render: (h) => h(App),
+}).$mount("#app");

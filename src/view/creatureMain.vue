@@ -19,6 +19,7 @@
           class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-3/5"
           placeholder="ドラゴンくん"
           v-model="name"
+          required
         /><br />
         <div class="flex items-end max-w-full w-full justify-between mb-2 md:justify-start">
           <div class="md:w-1/4">
@@ -45,6 +46,7 @@
               class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-full"
               placeholder="マナっぺ"
               v-model="nickname"
+              required
             /><br />
           </div>
         </div>
@@ -93,6 +95,7 @@
         </div>
       </div>
     </section>
+    <a href="#" class="btn_totop fixed right-2 bottom-5 block bg-white rounded-full text-yellow-300 text-3xl w-12 h-12 text-center leading-normal shadow-md"><i class="fas fa-arrow-up"></i></a>
   </div>
 </template>
 
@@ -100,6 +103,7 @@
 import axios from "axios";
 import Post from "../components/Post";
 import { createObserver } from "../js/intersectionObserver";
+import scrollTop from "../js/main";
 
 export default {
   props: ["number"],
@@ -107,8 +111,8 @@ export default {
     return {
       name: "",
       nickname: "",
-      voter: "",
-      reason: "",
+      voter: null,
+      reason: null,
       posts: [],
     };
   },
@@ -116,6 +120,9 @@ export default {
     axios.get("posts").then((response) => {
       this.posts = response.data.documents;
     });
+  },
+  mounted() {
+    scrollTop(document.querySelectorAll('.btn_totop'));
   },
   methods: {
     submit() {

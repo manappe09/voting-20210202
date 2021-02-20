@@ -83,6 +83,7 @@
         </div>
       </div>
     </section>
+    <a href="#" class="btn_totop fixed right-2 bottom-5 block bg-white rounded-full text-yellow-300 text-3xl w-12 h-12 text-center leading-normal shadow-md"><i class="fas fa-arrow-up"></i></a>
   </div>
 </template>
 
@@ -90,6 +91,7 @@
 import axios from "axios";
 import Post from "../components/Post";
 import { createObserver } from '../js/intersectionObserver';
+import scrollTop from '../js/main';
 
 export default {
   props: ["foo"],
@@ -110,6 +112,7 @@ export default {
     });
   },
   mounted() {
+    scrollTop(document.querySelectorAll('.btn_totop'));
   },
   methods: {
     submit() {
