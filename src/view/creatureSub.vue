@@ -100,8 +100,8 @@ export default {
     return {
       name: "",
       nickname: "",
-      voter: "",
-      reason: "特になし",
+      voter: null,
+      reason: null,
       posts: [],
       postIndex: ''
     };

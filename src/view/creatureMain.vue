@@ -113,7 +113,7 @@ export default {
       name: "",
       nickname: "",
       voter: null,
-      reason: '特になし',
+      reason: null,
       posts: [],
     };
   },
