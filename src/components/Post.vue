@@ -3,7 +3,6 @@
     class="posts-item group relative w-5/12 h-40 mb-4 transition duration-500 md:w-1/4 md:mr-2"
     :class="initialOpacity"
     @ontouchstart="touchStart"
-    @click="alert"
   >
     <div class="shadow-lg rounded-3xl overflow-hidden w-full h-full">
       <p
@@ -62,9 +61,6 @@ export default {
       console.log('touchstart');
       const tooltip = document.getElementById('tooltip');
       tooltip.classList.remove('opacity-0');
-    },
-    alert() {
-      alert('clicked');
     }
   }
 };
