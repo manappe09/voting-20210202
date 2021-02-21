@@ -12,7 +12,7 @@
         1人何回でも応募可能なので、奮って応募してね！
       </p>
       <form action="post" class="form">
-        <label class="text-xs text-gray-400" for="name">名前案</label><br />
+        <label class="text-xs text-gray-400" for="name">名前案&nbsp;<span class="text-red-600">*</span></label><br />
         <input
           type="text"
           id="name"
@@ -38,7 +38,7 @@
           </div>
           <div class="md:w-2/5">
             <label class="text-xs text-gray-400" for="nickname"
-              >投票者ニックネーム</label
+              >投票者ニックネーム&nbsp;<span class="text-red-600">*</span></label
             ><br />
             <input
               type="text"
@@ -69,6 +69,7 @@
         >
           送信
         </button>
+        <span id="formFailure" class="text-red-600 text-xs opacity-0">*のついた項目は入力必須です。</span>
       </form>
       <div class="posts mt-24">
         <h2 class="text-center">
@@ -112,7 +113,7 @@ export default {
       name: "",
       nickname: "",
       voter: null,
-      reason: null,
+      reason: '特になし',
       posts: [],
     };
   },
@@ -126,6 +127,12 @@ export default {
   },
   methods: {
     submit() {
+      if(this.name == '' || this.nickname == '') {
+        const formFailure = document.getElementById('formFailure');
+        formFailure.classList.remove('opacity-0');
+        
+        return false;
+      }
       this.$store.dispatch("updateMainData", {
         name: this.name,
         nickname: this.nickname,
