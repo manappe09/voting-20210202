@@ -2,7 +2,7 @@
   <div
     class="posts-item group relative w-5/12 h-40 mb-4 transition duration-500 md:w-1/4 md:mr-2"
     :class="initialOpacity"
-    @ontouchstart="touchStart"
+    @touchstart="touchStart"
   >
     <div class="shadow-lg rounded-3xl overflow-hidden w-full h-full">
       <p
