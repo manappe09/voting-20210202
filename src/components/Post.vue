@@ -2,7 +2,7 @@
   <div
     class="posts-item group relative w-5/12 h-40 mb-4 transition duration-500 md:w-1/4 md:mr-2"
     :class="initialOpacity"
-    @touchstart="touchStart"
+    @touchstart="showToolTip"
   >
     <div class="shadow-lg rounded-3xl overflow-hidden w-full h-full">
       <p
@@ -18,7 +18,7 @@
         >{{ postData.fields.nickname.stringValue }}さん</span
       >
     </div>
-    <p id="tooltip" class="absolute -bottom-0 inset-x-0 bg-green-400 p-2 text-xs text-white z-10 w-full rounded-none rounded-tl-full rounded-tr-full rounded-br-full group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+    <p class="tooltip absolute -bottom-0 inset-x-0 bg-green-400 p-2 text-xs text-white z-10 w-full rounded-none rounded-tl-full rounded-tr-full rounded-br-full md:group-hover:opacity-100 opacity-0 transition-opacity duration-500">
       {{ postData.fields.reason.stringValue }}
     </p>
   </div>
@@ -57,11 +57,18 @@ export default {
       })
   },
   methods: {
-    touchStart() {
-      console.log('touchstart');
-      const tooltip = document.getElementById('tooltip');
-      tooltip.classList.remove('opacity-0');
-    }
+    showToolTip() {
+      const i = this.postIndex;
+      const tooltips = document.querySelectorAll('.tooltip');
+      tooltips.forEach((tooltip, index) => {
+        if(index != i) {
+          console.log(tooltip);
+          tooltip.classList.replace('opacity-100', 'opacity-0');
+        } else {
+          tooltip.classList.replace('opacity-0', 'opacity-100');
+        }
+      })
+    },
   }
 };
 </script>
