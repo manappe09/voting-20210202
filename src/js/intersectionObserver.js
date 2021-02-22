@@ -9,7 +9,6 @@ let boxes = [];
 let observer;
 
 export function createObserver() {
-  console.log('created observer');
   boxes = document.querySelectorAll(".posts-item");
 
   let options = {
@@ -33,7 +32,6 @@ function doWhenIntersect(entries) {
   // 交差検知をしたものの中で、isIntersectingがtrueのものをスタイル変更の関数に渡す
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log(entry);
       fadeInItem(entry.target);
     }
   });

@@ -88,7 +88,6 @@
             :key="post.name"
             :post-data="post"
             :post-index="index"
-            @is-post-mounted="postMounted"
           ></Post>
           <!-- <p class="text-yellow-400 text-xs font-semibold text-center mt-8">
             もっと読み込む
@@ -140,9 +139,9 @@ export default {
         reason: this.reason,
       });
     },
-    postMounted() {
-      createObserver();
-    }
+    // postMounted() {
+    //   createObserver();
+    // }
   },
   components: {
     Post,

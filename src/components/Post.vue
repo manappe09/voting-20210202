@@ -26,6 +26,7 @@
 
 <script>
 import axios from 'axios';
+import { createObserver } from '../js/intersectionObserver';
 
 export default {
   props: ['postData', 'postIndex'],
@@ -44,8 +45,11 @@ export default {
     }
   },
   mounted() {
-    this.$emit('is-post-mounted');
+    // this.$emit('is-post-mounted');
     this.$emit('get-post-index',this.postIndex);
+    this.$nextTick(() => {
+      createObserver();
+    })
   },
   created() {
     axios
