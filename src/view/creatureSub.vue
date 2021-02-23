@@ -47,7 +47,7 @@
         <textarea
           type="text"
           id="reason"
-          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400 appearance-none"
+          class="border border-solid border-gray-300 rounded-full w-full p-2 focus:outline-none focus:border-green-400 appearance-none md:w-3/5"
           placeholder="見た目通り"
           rows="1"
           v-model="reason"
