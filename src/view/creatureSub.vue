@@ -89,7 +89,6 @@
 <script>
 import axios from "axios";
 import Post from "../components/Post";
-import { createObserver } from '../js/intersectionObserver';
 import scrollTop from '../js/main';
 
 export default {
@@ -105,7 +104,6 @@ export default {
     };
   },
   created() {
-    console.log('sub view created!');
     axios.get("postsSub").then((response) => {
       this.posts = response.data.documents;
     });
