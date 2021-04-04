@@ -9,11 +9,11 @@
         <input
           type="text"
           id="name"
-          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none"
+          class="border border-solid border-gray-300 rounded-full w-full h-9 mb-2 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-3/5"
           placeholder="かえるライオン"
           v-model="name"
         /><br />
-        <div class="flex items-end max-w-full w-full justify-between mb-2">
+        <div class="flex items-end max-w-full w-full justify-between mb-2 md:justify-start">
           <div>
             <label class="text-xs text-gray-400" for="voter">投票者属性</label
             ><br />
@@ -35,7 +35,7 @@
             <input
               type="text"
               id="nickname"
-              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none"
+              class="border border-solid border-gray-300 rounded-full h-9 pl-2 focus:outline-none focus:border-green-400 appearance-none md:w-full"
               placeholder="マナっぺ"
               v-model="nickname"
             /><br />
